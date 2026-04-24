@@ -41,6 +41,23 @@ function yesterdayString() {
   return d.toISOString().slice(0, 10);
 }
 
+async function loadProfile() {
+  const res = await fetch(API_URL + "/api/profile", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({user_id})
+  });
+
+  const data = await res.json();
+
+  coins = data.coins;
+  boxes = data.boxes;
+  rare = data.rare;
+  streak = data.streak;
+
+  updateStats();
+}
+
 function save() {
   localStorage.setItem("coins", coins);
   localStorage.setItem("boxes", boxes);
