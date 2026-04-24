@@ -27,6 +27,53 @@ const API_URL = "https://ravine-outcome-suitor.ngrok-free.dev";
 
 let user_id = 0;
 
+openBtn.addEventListener("click", async () => {
+
+  if (lastDaily === todayString()) {
+    result.textContent = "⏳ დღეს უკვე გახსენი ყუთი.";
+    return;
+  }
+
+  openBtn.disabled = true;
+  result.textContent = "✨ იღბალი ტრიალებს...";
+  box.classList.add("spin");
+
+  try {
+    const res = await fetch(API_URL + "/api/daily", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ user_id })
+    });
+
+    const data = await res.json();
+
+    setTimeout(() => {
+      box.classList.remove("spin");
+      box.textContent = data.emoji;
+
+      result.innerHTML = `
+        🎉 შენ მოიგე:<br>
+        <b>${data.emoji} ${data.item}</b><br>
+        🪙 +${data.reward} coins<br>
+        🔥 Bonus: +${data.bonus}
+      `;
+
+      coins = data.coins;
+      streak = data.streak;
+
+      updateStats();
+      openBtn.disabled = false;
+
+    }, 1500);
+
+  } catch (err) {
+    console.error(err);
+    result.textContent = "❌ შეცდომა. სცადე ისევ.";
+    openBtn.disabled = false;
+  }
+
+});
+
 if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
   user_id = window.Telegram.WebApp.initDataUnsafe.user.id;
 }
