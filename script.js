@@ -23,6 +23,7 @@ const coinsEl = document.getElementById("coins");
 const boxesEl = document.getElementById("boxes");
 const rareEl = document.getElementById("rare");
 const streakEl = document.getElementById("streak");
+const API_URL = "https://ravine-outcome-suitor.ngrok-free.dev";
 
 function todayString() {
   return new Date().toISOString().slice(0, 10);
