@@ -25,6 +25,12 @@ const rareEl = document.getElementById("rare");
 const streakEl = document.getElementById("streak");
 const API_URL = "https://ravine-outcome-suitor.ngrok-free.dev";
 
+let user_id = 0;
+
+if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
+  user_id = window.Telegram.WebApp.initDataUnsafe.user.id;
+}
+
 function todayString() {
   return new Date().toISOString().slice(0, 10);
 }
