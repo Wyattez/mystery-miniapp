@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #7b2ff7, #151522 70%);
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.card {
+  width: 100%;
+  max-width: 410px;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  text-align: center;
+  backdrop-filter: blur(14px);
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.sub {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.box {
+  font-size: 105px;
+  margin: 24px 0;
+  min-height: 120px;
+}
+
+.box.spin {
+  animation: spin 0.9s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.25); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+#openBtn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffd84d, #ff9f1c);
+  color: #251600;
+}
+
+#openBtn:disabled {
+  opacity: 0.55;
+}
+
+.cooldown {
+  margin-top: 14px;
+  color: #ffd84d;
+  font-size: 14px;
+}
+
+.result {
+  margin-top: 18px;
+  min-height: 78px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.stats {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.28);
+  display: grid;
+  gap: 8px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tab {
+  padding: 12px 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-weight: bold;
+}
+
+.panel {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.22);
+  text-align: left;
+  min-height: 55px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.rare {
+  color: #7df9ff;
+  font-weight: bold;
+}
+
+.legendary {
+  color: #ffd84d;
+  font-weight: bold;
+}

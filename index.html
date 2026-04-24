@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystery Drop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="card">
+      <h1>🎁 Mystery Drop</h1>
+      <p class="sub">Daily box • Coins • Rare items • Streak</p>
+
+      <div class="box" id="box">🎁</div>
+
+      <button id="openBtn">🎰 Open Daily Box</button>
+
+      <div id="cooldown" class="cooldown"></div>
+      <div id="result" class="result">დღეში ერთხელ შეგიძლია გახსნა ყუთი</div>
+
+      <div class="stats">
+        <div>🪙 Coins: <span id="coins">0</span></div>
+        <div>🎁 Boxes: <span id="boxes">0</span></div>
+        <div>💎 Rare: <span id="rare">0</span></div>
+        <div>🔥 Streak: <span id="streak">0</span></div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab" onclick="showInventory()">🎒 Inventory</button>
+        <button class="tab" onclick="showProfile()">👤 Profile</button>
+        <button class="tab" onclick="showTop()">🏆 Top</button>
+      </div>
+
+      <div id="panel" class="panel"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
